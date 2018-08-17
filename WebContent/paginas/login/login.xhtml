@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Sistema Curitiba na Mão</title>
+</h:head>
+
+<h:body>
+
+	<h:form id="formPessoa">
+
+		<h:messages />
+		
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputText value="Curitiba na Mão" />
+			</f:facet>
+
+			<h:outputLabel value="Login:" />
+			<h:inputText 
+				id="login"
+				size="25" 
+		        value="#{logarBean.usuario.loginUsuario}"  />
+
+			<h:outputLabel value="Senha:" />
+			<h:inputSecret 
+				id="senha" 
+	        	size="26" 
+		       	value="#{logarBean.usuario.senhaUsuario}" />
+
+			<h:outputLabel />
+			<h:panelGroup>
+				<h:commandButton value="Voltar" action="#{logarBean.voltarLogin()}" />
+				<h:commandButton value="Login" action="#{logarBean.efetuarLogin()}" />
+			</h:panelGroup>
+
+		</h:panelGrid>
+
+	</h:form>
+	
+</h:body>
+</html>

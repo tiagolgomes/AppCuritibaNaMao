@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Excluir Usuário</title>
+</h:head>
+<h:body>
+
+
+
+	<h:messages />
+
+	<h:outputText value="Excluir Usuário" />
+
+	<br />
+	<h:outputText value="#{logarBean.usuario.nomeUsuario}" />
+	<br />
+	<br />
+	<br />
+
+	<h:panelGrid columns="3">
+		<h:panelGroup>
+
+			<h:form id="formExcluirUsuarioPropria">
+				<h:outputLabel value="Excluir própria Conta:" />
+				<br />
+				<h:commandButton value="Excluir"
+					action="#{usuarioBean.excluirASiMesmo()}" />
+			</h:form>
+			<br />
+			<br />
+			<br />
+			<h:form id="formVoltar">
+
+				<h:commandButton value="Voltar"
+					action="#{navegabilidadeBean.carregarMenuPromoter()}" />
+
+			</h:form>
+
+		</h:panelGroup>
+	</h:panelGrid>
+
+</h:body>
+</html>

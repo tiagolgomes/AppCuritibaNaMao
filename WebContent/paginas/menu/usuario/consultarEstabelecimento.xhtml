@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Consultar Estabelecimento</title>
+</h:head>
+<h:body>
+
+
+
+	<h:messages />
+
+	<h:outputText value="Consultar Estabelecimento" />
+
+	<br />
+	<h:outputText value="#{logarBean.usuario.nomeUsuario}" />
+	<br />
+	<br />
+	<br />
+
+	<h:panelGrid columns="3">
+		<h:panelGroup>
+			
+			<h:form id="formConsultarEstabID">
+				<h:outputLabel value="Consulte pelo ID do Estabelecimeno: " />
+				<h:inputText id="id_estabelecimento_consulta" size="40"
+					value="#{usuarioBean.estabelecimentoConsultar.idEstabelecimento}" />
+					<br />
+				<h:commandButton value="Consultar"
+					action="#{usuarioBean.consultarEstabelecimentoId()}" />
+				<br />
+			</h:form>
+			
+			<br />
+			
+			<h:form id="formConsultarEstabCateg">
+				<h:outputText value="Consultar por Categoria do Estabelecimento: " />
+				<h:selectOneRadio value="#{usuarioBean.estabelecimentoConsultar.idCategoriaEstabelecimento}">
+					<f:selectItem itemValue="1" itemLabel="Bar"/>
+					<f:selectItem itemValue="2" itemLabel="Balada"/>
+					<f:selectItem itemValue="3" itemLabel="Restaurante"/>
+				</h:selectOneRadio>
+				<h:commandButton value="Consultar"
+					action="#{usuarioBean.consultarEstabelecimentoCategoria()}" />
+				<br />
+			</h:form>
+			
+			<br />
+			
+			<h:form id="formConsultarEstabTodos">
+			<h:outputText value="Consultar todos os Estabelecimentos: " />
+			<br />
+			<h:commandButton value="Consultar"
+					action="#{usuarioBean.consultarEstabelecimentoLista()}" />
+			</h:form>
+			
+			
+			<br />
+			<br />
+			<br />
+			<h:form id="formVoltar">
+
+				<h:commandButton value="Voltar"
+					action="#{navegabilidadeBean.carregarMenuUsuario()}" />
+
+			</h:form>
+
+		</h:panelGroup>
+	</h:panelGrid>
+	
+	<tr>
+		<td width="100%" align="left">
+			<h:form id="formResultado">
+				<table width="100%" align="left" cellpadding="5" cellspacing="0" border="0">
+					<tbody>
+						<tr>
+							<td align="left" valign="middle" width="100%">
+					    		<h:dataTable value="#{usuarioBean.listaEstabelecimentos}" var="estabelecimento"
+					    			styleClass="order-table"
+					    			headerClass="order-table-header"
+					    			rowClasses="order-table-odd-row,order-table-even-row">
+					
+					    			<h:column>
+					    				<f:facet name="header">ID</f:facet>
+					    				<h:outputText value="#{estabelecimento.idEstabelecimento}"/>
+					    			</h:column>
+					
+					    			<h:column>
+					    				<f:facet name="header">IdCategoria</f:facet>
+					    				<h:outputText value="#{estabelecimento.idCategoriaEstabelecimento}"/>
+					    			</h:column>
+					    			
+					    			<h:column>
+					    				<f:facet name="header">Nome</f:facet>
+					    				<h:outputText value="#{estabelecimento.nomeEstabelecimento}"/>
+					    			</h:column>
+					
+					    			<h:column>
+					    				<f:facet name="header">Endereço</f:facet>
+					    				<h:outputText value="#{estabelecimento.endereçoEstabelecimento}"/>
+					    			</h:column>
+					    			
+					    			<h:column>
+					    				<f:facet name="header">Cidade</f:facet>
+					    				<h:outputText value="#{estabelecimento.cidadeEstabelecimento}"/>
+					    			</h:column>
+					    			
+					    			<h:column>
+					    				<f:facet name="header">Telefone</f:facet>
+					    				<h:outputText value="(#{estabelecimento.dddEstabelecimento})-#{estabelecimento.telefoneEstabelecimento}"/>
+					    			</h:column>
+					
+					    			<h:column>
+					    				<f:facet name="header">E-mail</f:facet>
+					    				<h:outputText value="#{estabelecimento.emailEstabelecimento}"/>
+					    			</h:column>
+					
+					    			<h:column>
+					    				<f:facet name="header">Estilo</f:facet>
+					    				<h:outputText value="#{estabelecimento.estiloEstabelecimento}"/>
+					    			</h:column>
+					
+					    			<h:column>
+					    				<f:facet name="header">Valor</f:facet>
+					    				<h:outputText value="#{estabelecimento.valorEstabelecimento}"/>
+					    			</h:column>
+
+				    			</h:dataTable>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</h:form>
+		</td>
+	</tr>	
+
+</h:body>
+</html>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastrar Estabelecimento</title>
+</h:head>
+<h:body>
+	<h:outputText value="Cadastrar Estabelecimento"/>
+	
+	<h:form id="formPessoa">
+
+		<h:messages />
+		
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputText value="Cadastro de novos Estabelecimentos" />
+			</f:facet>
+			
+			<h:outputText value="Tipo de Estabelecimento: " />
+			<h:selectOneRadio 
+				required="true" 
+				id="tipoEstabelecimento"
+				value="#{usuarioBean.estabelecimentoNovo.idCategoriaEstabelecimento}">
+				<f:selectItem itemValue="1" itemLabel="Bar"/>
+				<f:selectItem itemValue="2" itemLabel="Balada"/>
+				<f:selectItem itemValue="3" itemLabel="Restaurante"/>
+			</h:selectOneRadio>
+			
+			<h:outputLabel value="Nome:" />
+			<h:inputText 
+				required="true"
+				id="nome"
+				size="40" 
+		        value="#{usuarioBean.estabelecimentoNovo.nomeEstabelecimento}"  />
+		        
+		   	<h:outputLabel value="Endereco: " />
+			<h:inputText 
+				required="true"
+				id="endereco"
+				size="40" 
+		        value="#{usuarioBean.estabelecimentoNovo.endereçoEstabelecimento}"  />
+		        
+	      	<h:outputLabel value="Cidade: " />
+			<h:inputText 
+				required="true"
+				id="cidade"
+				size="40" 
+		        value="#{usuarioBean.estabelecimentoNovo.cidadeEstabelecimento}"  />
+
+			<h:outputLabel value="DDD:" />
+			<h:inputText 
+				required="true"
+				id="ddd" 
+	        	size="40" 
+		       	value="#{usuarioBean.estabelecimentoNovo.dddEstabelecimento}" />
+	       	
+	       	<h:outputLabel value="Telefone:" />
+			<h:inputText 
+				required="true"
+				id="telefone" 
+	        	size="40" 
+		       	value="#{usuarioBean.estabelecimentoNovo.telefoneEstabelecimento}" />
+		       	
+	      	<h:outputLabel value="E-mail:" />
+			<h:inputText 
+				required="true"
+				id="email" 
+	        	size="40" 
+		       	value="#{usuarioBean.estabelecimentoNovo.emailEstabelecimento}" />
+		       	
+		    <h:outputLabel value="Estilo: " />
+			<h:inputText 
+				required="true"
+				id="estilo" 
+	        	size="40" 
+		       	value="#{usuarioBean.estabelecimentoNovo.estiloEstabelecimento}" />
+		       	
+    		<h:outputLabel value="Valor Entrada: " />
+			<h:inputText 
+				required="true"
+				id="valor" 
+	        	size="40" 
+		       	value="#{usuarioBean.estabelecimentoNovo.valorEstabelecimento}" />
+
+			<h:outputLabel />
+			<h:panelGroup>
+				<h:commandButton value="Salvar" action="#{usuarioBean.cadastrarNovoEstabelecimento()}" />
+			</h:panelGroup>
+
+		</h:panelGrid>
+
+	</h:form>	
+	
+	<h:form>
+	
+		<h:panelGroup>
+			<h:commandButton value="Voltar" action="#{navegabilidadeBean.carregarMenuPromoter()}" />
+		</h:panelGroup>
+	
+	</h:form>
+	
+</h:body>
+</html>

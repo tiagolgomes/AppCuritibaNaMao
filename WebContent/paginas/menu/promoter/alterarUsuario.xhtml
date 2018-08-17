@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Alterar Usuário</title>
+</h:head>
+<h:body>
+
+	<h:messages />
+
+	<h:outputText value="Alterar Usuário" />
+
+	<br />
+	<h:outputText value="#{logarBean.usuario.nomeUsuario}" />
+	<br />
+	<br />
+	<br />
+
+	<h:panelGroup>
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputText value="Alterar Usuário" />
+			</f:facet>
+			<h:form id="formAlterarUsuarioID">
+				
+				<br />
+				
+				<h:outputText value="Dado a ser alterado: " />
+				<br />
+				<h:selectOneRadio 
+					required="true"
+					id="dadoUsuario"
+					value="#{usuarioBean.dadoUsuarioAlterar}">
+					<f:selectItem itemValue="NOME_USUARIO" itemLabel="Nome"/>
+					<f:selectItem itemValue="CIDADE_USUARIO" itemLabel="Cidade"/>
+					<f:selectItem itemValue="DDD_TELEFONE_USUARIO" itemLabel="DDD"/>
+					<f:selectItem itemValue="TELEFONE_USUARIO" itemLabel="Telefone"/>
+					<f:selectItem itemValue="EMAIL_USUARIO" itemLabel="E-mail"/>
+					<f:selectItem itemValue="LOGIN_USUARIO" itemLabel="Login"/>
+					<f:selectItem itemValue="SENHA_USUARIO" itemLabel="Senha"/>
+				</h:selectOneRadio>	
+				
+				<br />
+				<br />
+					
+				<h:outputLabel value="Digite o novo dado:" />
+				<h:inputText required="true" id="nome" size="50"
+					value="#{usuarioBean.dadoUsuario}" />
+					
+					<br />
+					
+				<h:commandButton value="Alterar"
+					action="#{usuarioBean.alterarUsuarioCarregarMetodo()}" />	
+					
+			</h:form>
+			<br />
+		</h:panelGrid>
+		<br />
+
+		
+		<br />
+		<h:form id="formVoltar">
+			<h:panelGrid columns="1">
+
+				<h:commandButton value="Voltar"
+					action="#{navegabilidadeBean.carregarMenuPromoter()}" />
+
+			</h:panelGrid>
+		</h:form>
+	</h:panelGroup>
+
+</h:body>
+</html>

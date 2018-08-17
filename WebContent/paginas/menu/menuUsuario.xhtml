@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Menu Usuário</title>
+</h:head>
+<h:body>
+
+	<h:form id="formPessoa">
+	
+		<h:messages />
+
+		<h:outputText value="Menu Usuário"/>
+		
+		<br />
+		<h:outputText value="#{logarBean.usuario.nomeUsuario}" />
+		<br />
+		
+		<h:panelGrid columns="1">
+			<h:panelGroup>
+			
+				<br/>
+				<h:commandButton style="height: 30px; width: 260px;" value="Consultar Estabelecimentos" 
+					action="#{navegabilidadeBean.carregarMenuUsuarioConsultarEstabelecimento()}" />
+				<br/>
+				<h:commandButton style="height: 30px; width: 260px;" value="Consultar seus Próprios Dados" 
+					action="#{navegabilidadeBean.carregarMenuUsuarioConsultarUsuario()}" />
+				<br/>
+				<h:commandButton style="height: 30px; width: 260px;" value="Alterar seus Dados Pessoais" 
+					action="#{navegabilidadeBean.carregarMenuUsuarioAlterarUsuario()}" />
+				<br/>
+				<h:commandButton style="height: 30px; width: 260px;" value="Excluir seu Cadastro" 
+					action="#{navegabilidadeBean.carregarMenuUsuarioExcluirUsuario()}" />
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<br/>
+				<h:commandButton value="Logout" action="#{logarBean.efetuarLogout()}" />
+				
+			</h:panelGroup>
+		</h:panelGrid>
+		
+	</h:form>
+	
+</h:body>
+</html>

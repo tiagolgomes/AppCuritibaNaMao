@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Cadastrar Usuário</title>
+</h:head>
+<h:body>
+
+	<h:messages />
+
+	<h:outputText value="Cadastrar Usuário"/>
+	
+	<br />
+	<h:outputText value="#{logarBean.usuario.nomeUsuario}" />
+	<br />
+	<br />
+	<br />
+	
+	<h:form id="formPessoa">
+		
+		<h:panelGrid columns="2">
+			<f:facet name="header">
+				<h:outputText value="Cadastro de novos Usuários" />
+			</f:facet>
+			
+			<h:outputText value="Tipo de Usuário: " />
+			<h:selectOneRadio value="#{usuarioBean.usuarioNovo.idTipoUsuario}">
+				<f:selectItem itemValue="1" itemLabel="Administrador"/>
+				<f:selectItem itemValue="2" itemLabel="Promoter"/>
+				<f:selectItem itemValue="3" itemLabel="Usuário Consumidor"/>
+			</h:selectOneRadio>
+			
+			<h:outputLabel value="Nome:" />
+			<h:inputText 
+				id="nome"
+				size="40" 
+		        value="#{usuarioBean.usuarioNovo.nomeUsuario}"  />
+		        
+	      	<h:outputLabel value="Cidade: " />
+			<h:inputText 
+				id="cidade"
+				size="40" 
+		        value="#{usuarioBean.usuarioNovo.cidadeUsuario}"  />
+
+			<h:outputLabel value="DDD:" />
+			<h:inputText 
+				id="ddd" 
+	        	size="40" 
+		       	value="#{usuarioBean.usuarioNovo.dddUsuario}" />
+	       	
+	       	<h:outputLabel value="Telefone:" />
+			<h:inputText 
+				id="telefone" 
+	        	size="40" 
+		       	value="#{usuarioBean.usuarioNovo.telefoneUsuario}" />
+		       	
+	      	<h:outputLabel value="E-mail:" />
+			<h:inputText 
+				id="email" 
+	        	size="40" 
+		       	value="#{usuarioBean.usuarioNovo.emailUsuario}" />
+		       	
+		    <h:outputLabel value="Login:" />
+			<h:inputText 
+				id="login" 
+	        	size="40" 
+		       	value="#{usuarioBean.usuarioNovo.loginUsuario}" />
+		       	
+    		<h:outputLabel value="Senha:" />
+			<h:inputSecret 
+				id="senha" 
+	        	size="40" 
+		       	value="#{usuarioBean.usuarioNovo.senhaUsuario}" />
+
+			<h:outputLabel />
+			<h:panelGroup>
+				<h:commandButton value="Salvar" action="#{usuarioBean.fazerCadastroNovoUsuario()}" />
+			</h:panelGroup>
+
+		</h:panelGrid>
+
+	</h:form>	
+	
+	<h:form>
+	
+		<h:panelGroup>
+			<h:commandButton value="Voltar" action="#{navegabilidadeBean.carregarMenuAdministrador()}" />
+		</h:panelGroup>
+	
+	</h:form>
+	
+</h:body>
+</html>
